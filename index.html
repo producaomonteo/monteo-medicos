@@ -70,7 +70,7 @@
   /* ================= HERO ================= */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center}
   .hero-bg{position:absolute;inset:0;z-index:0}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
   .hero-overlay{position:absolute;inset:0;background:rgba(21,21,21,0.70);z-index:1}
   .hero-fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:1}
   .hero-content{position:relative;z-index:2;width:100%;padding:160px 40px 120px;max-width:1440px;margin:0 auto}
@@ -132,10 +132,11 @@
   }
 
   /* ================= QUEM SOMOS ================= */
-  .founders{display:grid;grid-template-columns:1fr 1fr;min-height:800px}
-  .founders-img{position:relative}
-  .founders-img .ph-wrap{position:absolute;inset:0}
-  .founders-txt{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+  .founders{padding:120px 0}
+  .founders-grid{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:center}
+  .founders-img .ph-wrap{border-radius:8px;border:1px solid var(--border);min-height:420px}
+  .founders-img .ph-wrap img{width:100%;height:auto;object-fit:contain;border-radius:8px}
+  .founders-txt{display:flex;flex-direction:column;justify-content:center}
   .founders-txt h2{font-family:var(--serif);font-size:clamp(32px,3.4vw,42px);font-weight:400;line-height:1.2;margin:20px 0 32px}
   .founders-txt p{font-size:16px;line-height:1.8;color:var(--txt-2);font-weight:300}
   .tags{display:flex;flex-wrap:wrap;gap:12px;margin:40px 0}
@@ -145,16 +146,21 @@
   .link-copper{color:var(--copper);font-size:14px;letter-spacing:1px;transition:opacity .3s}
   .link-copper:hover{opacity:.7}
 
-  /* ================= PODCAST ================= */
+  /* ================= CONTEÚDO / PODCASTS ================= */
   .podcast{background:var(--bg-alt);padding:120px 0}
-  .podcast-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center}
-  .podcast-logo{height:72px;width:auto;margin-bottom:36px}
-  .podcast-logo-fallback{display:none;font-family:var(--serif);font-size:28px;margin-bottom:36px}
-  .podcast h2{font-family:var(--serif);font-size:clamp(30px,3vw,38px);font-weight:400;line-height:1.25;margin-bottom:20px}
-  .podcast .sub{font-size:16px;line-height:1.7;color:var(--txt-2);font-weight:300;margin-bottom:44px}
-  .podcast-mosaic{border-radius:8px;overflow:hidden}
-  .podcast-mosaic .ph-wrap{width:100%;border-radius:8px;min-height:280px}
-  .podcast-mosaic img{width:100%;height:auto;object-fit:contain}
+  .podcast .section-title{font-family:var(--serif);font-size:clamp(36px,4vw,48px);font-weight:400;margin:20px 0 80px}
+  .podcast-block{display:grid;grid-template-columns:4fr 7fr;gap:72px;align-items:center;margin-bottom:110px}
+  .podcast-block:last-child{margin-bottom:0}
+  .podcast-logo{max-height:110px;width:auto;margin-bottom:32px}
+  .podcast-logo-fallback{display:none;font-family:var(--serif);font-size:26px;margin-bottom:32px}
+  .podcast-info .sub{font-size:16px;line-height:1.8;color:var(--txt-2);font-weight:300;margin-bottom:40px}
+  .podcast-media .video-embed{
+    aspect-ratio:16/9;border-radius:8px;overflow:hidden;
+    border:1px solid var(--border);background:#1C1C1C;
+  }
+  .podcast-media .video-embed iframe{width:100%;height:100%;border:0;display:block}
+  .podcast-media .ph-wrap{border-radius:8px;min-height:240px}
+  .podcast-media .ph-wrap img{width:100%;height:auto;object-fit:contain}
 
   /* ================= IMPRENSA ================= */
   .press{padding:120px 0}
@@ -242,11 +248,9 @@
     .numbers-grid{grid-template-columns:1fr 1fr;gap:40px 0}
     .num-col:nth-child(3){border-left:none}
     .review-grid{grid-template-columns:1fr}
-    .founders{grid-template-columns:1fr}
-    .founders-img{min-height:420px}
-    .founders-img .ph-wrap{position:relative;height:420px}
-    .founders-txt{padding:72px 24px}
-    .podcast-grid{grid-template-columns:1fr;gap:48px}
+    .founders{padding:80px 0}
+    .founders-grid{grid-template-columns:1fr;gap:48px}
+    .podcast-block{grid-template-columns:1fr;gap:40px;margin-bottom:80px}
     .press-grid{grid-template-columns:1fr}
     .video-grid{grid-template-columns:1fr}
   }
@@ -263,7 +267,7 @@
 <nav class="nav">
   <div class="container">
     <a href="#">
-      <img class="logo-img" src="LOGO_2025_HORIZONTAL_BRANCO-8.png" alt="Monteo"
+      <img class="logo-img" src="logo-monteo.png" alt="Monteo"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="logo-fallback">MONTEO</span>
     </a>
@@ -275,7 +279,7 @@
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="hero-bg">
-    <img src="FOTOS_PROFISSIONAIS_KAREN_E_JUCIEL-808.jpg" alt="" onerror="this.style.display='none'">
+    <img src="entrada-monteo.png" alt="" onerror="this.style.display='none'">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-fade"></div>
@@ -344,12 +348,14 @@
 
 <!-- ================= QUEM SOMOS ================= -->
 <section class="founders">
-  <div class="founders-img">
-    <div class="ph-wrap ph" data-label="Foto Juciel & Karen">
-      <img src="FOTOS_PROFISSIONAIS_KAREN_E_JUCIEL-808.jpg" alt="Juciel Oliveira e Karen Hasse, fundadores da Monteo" onerror="this.remove()">
-    </div>
-  </div>
-  <div class="founders-txt">
+  <div class="container">
+    <div class="founders-grid">
+      <div class="founders-img reveal">
+        <div class="ph-wrap ph" data-label="Foto Juciel & Karen (foto-fundadores.jpg)">
+          <img src="foto-fundadores.jpg" alt="Juciel Oliveira e Karen Hasse, fundadores da Monteo" onerror="this.remove()">
+        </div>
+      </div>
+      <div class="founders-txt">
     <span class="eyebrow reveal">Os fundadores</span>
     <h2 class="reveal">Uma história construída através de relacionamentos, resultados e propósito.</h2>
     <p class="reveal">Juciel Oliveira e Karen Hasse fundaram a Monteo com uma missão clara: democratizar o acesso a estratégias patrimoniais inteligentes para médicos, empresários e profissionais liberais.</p>
@@ -361,31 +367,51 @@
     </div>
     <div class="book reveal">
       <div class="ph-wrap ph" data-label="Livro">
-        <img src="livro_receita_de_sucesso.png" alt="Livro Receita de Sucesso — Os Pilares dos Empresários Bem-sucedidos" onerror="this.remove()">
+        <img src="livro-receita.png" alt="Livro Receita de Sucesso, Os Pilares dos Empresários Bem-sucedidos" onerror="this.remove()">
       </div>
     </div>
     <a class="link-copper reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">→ Instagram da Monteo</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ================= PODCAST ================= -->
+<!-- ================= CONTEÚDO / PODCASTS ================= -->
 <section class="podcast">
   <div class="container">
-    <div class="podcast-grid">
+    <span class="eyebrow reveal">Conteúdo</span>
+    <h2 class="section-title reveal">Podcast</h2>
+
+    <div class="podcast-block reveal">
       <div class="podcast-info">
-        <img class="podcast-logo reveal" src="Ativo_8_216x.png" alt="Receita de Sucesso Podcast"
+        <img class="podcast-logo" src="logo-monteocast.png" alt="Monteo Cast"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="podcast-logo-fallback">Monteo Cast</div>
+        <p class="sub">Conteúdo estratégico para quem quer entender e dominar o mercado de consórcios.</p>
+        <a class="btn-outline" href="https://www.youtube.com/watch?v=89_4jaPNwxg&list=PLVU13ZzvmqTz4hymX_FdcQUmEDDr1bCPG" target="_blank" rel="noopener">Ver o canal</a>
+      </div>
+      <div class="podcast-media">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/89_4jaPNwxg" title="Monteo Cast" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="podcast-block reveal">
+      <div class="podcast-info">
+        <img class="podcast-logo" src="logo-receita.png" alt="Receita de Sucesso Podcast"
              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div class="podcast-logo-fallback">Receita de Sucesso Podcast</div>
-        <h2 class="reveal">Nossos fundadores entrevistam constantemente alguns dos maiores empresários e líderes do Brasil.</h2>
-        <p class="sub reveal">Empresários, executivos, atletas e líderes que construíram resultados extraordinários em suas áreas de atuação.</p>
-        <a class="btn-outline reveal" href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Ver o canal</a>
+        <p class="sub">Nossos fundadores entrevistam constantemente alguns dos maiores empresários e líderes do Brasil. Empresários, executivos, atletas e líderes que construíram resultados extraordinários em suas áreas de atuação.</p>
+        <a class="btn-outline" href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Ver o canal</a>
       </div>
-      <div class="podcast-mosaic reveal">
+      <div class="podcast-media">
         <div class="ph-wrap ph" data-label="Mosaico de convidados (foto-convidados.png)">
           <img src="foto-convidados.png" alt="Convidados do Receita de Sucesso Podcast" onerror="this.remove()">
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -398,8 +424,8 @@
       <a class="press-card reveal" href="https://istoe.com.br/consorcio-imobiliario-cresce-como-estrategia-de-investimento" target="_blank" rel="noopener">
         <div class="press-head">IstoÉ <span>Matéria</span></div>
         <div class="press-media">
-          <div class="ph-wrap ph" data-label="Imagem da matéria — IstoÉ (materia_istoe.png)">
-            <img src="materia_istoe.png" alt="Matéria da IstoÉ sobre consórcio imobiliário" onerror="this.remove()">
+          <div class="ph-wrap ph" data-label="Imagem da matéria (materia-istoe.png)">
+            <img src="materia-istoe.png" alt="Matéria da IstoÉ sobre consórcio imobiliário" onerror="this.remove()">
           </div>
         </div>
         <div class="press-caption">Consórcio imobiliário cresce como estratégia de investimento.<span class="read-more">Ler a matéria →</span></div>
@@ -464,11 +490,11 @@
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-q">Consórcio só vale a pena se contemplar rápido?</button>
-        <div class="faq-a"><p>Não. A estratégia apresentada é de construção patrimonial no longo prazo — a contemplação é uma etapa do processo, não o objetivo final. O planejamento considera diferentes cenários e prazos desde o início.</p></div>
+        <div class="faq-a"><p>Não. A estratégia apresentada é de construção patrimonial no longo prazo. A contemplação é uma etapa do processo, não o objetivo final, e o planejamento considera diferentes cenários e prazos desde o início.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">E se minha contemplação demorar mais do que o esperado?</button>
-        <div class="faq-a"><p>O planejamento já contempla essa possibilidade. Existem mecanismos, como a estratégia de lances, que permitem maior previsibilidade — e a assessoria acompanha cada etapa para ajustar o caminho quando necessário.</p></div>
+        <div class="faq-a"><p>O planejamento já contempla essa possibilidade. Existem mecanismos, como a estratégia de lances, que permitem maior previsibilidade, e a assessoria acompanha cada etapa para ajustar o caminho quando necessário.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Existe risco nesse tipo de estratégia?</button>
@@ -476,7 +502,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Por que médicos e empresários utilizam esse tipo de estratégia?</button>
-        <div class="faq-a"><p>Porque ela une disciplina de aporte, ausência de juros de financiamento e previsibilidade — características valorizadas por quem tem boa capacidade de geração de renda e busca acelerar a construção de patrimônio.</p></div>
+        <div class="faq-a"><p>Porque ela une disciplina de aporte, ausência de juros de financiamento e previsibilidade. São características valorizadas por quem tem boa capacidade de geração de renda e busca acelerar a construção de patrimônio.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Preciso investir grandes valores para começar?</button>
@@ -488,19 +514,19 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Como a Monteo é remunerada?</button>
-        <div class="faq-a"><p>De forma transparente. Nossa remuneração vem das administradoras parceiras — o cliente não paga nada adicional pela assessoria e pelo acompanhamento da Monteo.</p></div>
+        <div class="faq-a"><p>De forma transparente. Nossa remuneração vem das administradoras parceiras, e o cliente não paga nada adicional pela assessoria e pelo acompanhamento da Monteo.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Sou obrigado a contratar algo após a reunião?</button>
-        <div class="faq-a"><p>De forma alguma. A reunião tem caráter consultivo. A decisão é sua, no seu tempo — nosso papel é apresentar a estratégia com clareza para que você decida com segurança.</p></div>
+        <div class="faq-a"><p>De forma alguma. A reunião tem caráter consultivo e a decisão é sua, no seu tempo. Nosso papel é apresentar a estratégia com clareza para que você decida com segurança.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Qual o diferencial da Monteo frente a outras empresas?</button>
-        <div class="faq-a"><p>Mais de 15 anos de experiência, R$ 1,7 bilhão sob assessoria e um acompanhamento próximo do início à contemplação — e além dela. Não vendemos cotas: construímos estratégias e relacionamentos de longo prazo.</p></div>
+        <div class="faq-a"><p>Mais de 15 anos de experiência, R$ 1,7 bilhão sob assessoria e um acompanhamento próximo em todas as etapas, da contratação à contemplação e além dela. Não vendemos cotas: construímos estratégias e relacionamentos de longo prazo.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Onde posso aprender mais sobre construção patrimonial e consórcios?</button>
-        <div class="faq-a"><p>Em nossos canais: o Receita de Sucesso Podcast, o Monteocast, nosso livro publicado pela Alta Books e os conteúdos do Instagram da Monteo. Os links estão ao final desta página.</p></div>
+        <div class="faq-a"><p>Em nossos canais: o Receita de Sucesso Podcast, o Monteo Cast, nosso livro publicado pela Alta Books e os conteúdos do Instagram da Monteo. Os links estão ao final desta página.</p></div>
       </div>
     </div>
   </div>
@@ -526,12 +552,12 @@
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
-    <img class="footer-logo-img" src="LOGO_2025_HORIZONTAL_BRANCO-8.png" alt="Monteo"
+    <img class="footer-logo-img" src="logo-monteo.png" alt="Monteo"
          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <div class="footer-logo-fallback">MONTEO</div>
     <div class="footer-links">
       <a href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.youtube.com/watch?v=89_4jaPNwxg&list=PLVU13ZzvmqTz4hymX_FdcQUmEDDr1bCPG" target="_blank" rel="noopener">Monteocast</a>
+      <a href="https://www.youtube.com/watch?v=89_4jaPNwxg&list=PLVU13ZzvmqTz4hymX_FdcQUmEDDr1bCPG" target="_blank" rel="noopener">Monteo Cast</a>
       <a href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Receita de Sucesso</a>
       <a href="https://monteo.com.br" target="_blank" rel="noopener">monteo.com.br</a>
     </div>
