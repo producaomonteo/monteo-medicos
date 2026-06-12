@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monteo — Obrigado pelo seu tempo, Doutor.</title>
+<meta name="description" content="Conheça a Monteo: nossa história, nossos fundadores e por que tantos médicos e empresários confiam em nossa assessoria patrimonial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#151515;
+    --bg-alt:#0E0E0E;
+    --bg-footer:#0A0A0A;
+    --copper:#A87056;
+    --white:#FFFFFF;
+    --txt-2:rgba(255,255,255,0.68);
+    --txt-3:rgba(255,255,255,0.42);
+    --border:rgba(168,112,86,0.15);
+    --border-strong:rgba(168,112,86,0.3);
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'DM Sans', -apple-system, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  .eyebrow{font-family:var(--sans);text-transform:uppercase;font-size:11px;letter-spacing:3px;color:var(--copper);font-weight:500}
+  .container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+  /* ---------- Placeholder system: real filenames first, labeled fallback if missing ---------- */
+  .ph-wrap{position:relative;overflow:hidden;background:linear-gradient(135deg,#1C1C1C 0%,#232020 50%,#1C1C1C 100%)}
+  .ph-wrap.ph::after{
+    content:attr(data-label);
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--sans);text-transform:uppercase;font-size:11px;letter-spacing:3px;color:var(--copper);
+    padding:20px;border:1px dashed var(--border-strong);
+  }
+  .ph-wrap img{width:100%;height:100%;object-fit:cover}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+
+  /* ================= NAVBAR ================= */
+  .nav{
+    position:fixed;top:0;left:0;right:0;height:80px;z-index:100;
+    background:rgba(21,21,21,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    display:flex;align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+  }
+  .nav .container{width:100%;display:flex;align-items:center;justify-content:space-between}
+  .nav .logo-img{height:32px;width:auto}
+  .nav .logo-fallback{font-family:var(--serif);font-size:26px;letter-spacing:6px;font-weight:500;display:none}
+  .btn-nav{
+    display:inline-block;background:transparent;color:var(--white);
+    border:1px solid rgba(255,255,255,0.35);border-radius:2px;
+    text-transform:uppercase;font-size:11px;letter-spacing:2px;font-weight:500;
+    padding:12px 22px;transition:border-color .3s ease,color .3s ease;
+  }
+  .btn-nav:hover{border-color:var(--copper);color:var(--copper)}
+
+  /* ================= HERO ================= */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+  .hero-overlay{position:absolute;inset:0;background:rgba(21,21,21,0.70);z-index:1}
+  .hero-fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:1}
+  .hero-content{position:relative;z-index:2;width:100%;padding:160px 40px 120px;max-width:1440px;margin:0 auto}
+  @media(min-width:1200px){.hero-content{padding-left:160px;padding-right:160px}}
+  .hero h1{font-family:var(--serif);font-size:clamp(44px,6vw,72px);font-weight:400;line-height:1.08;margin:24px 0}
+  .hero p{font-size:18px;line-height:1.7;color:var(--txt-2);max-width:600px;margin-bottom:48px;font-weight:300}
+  .hero .eyebrow{letter-spacing:4px;font-size:12px}
+
+  .btn{
+    display:inline-block;background:var(--copper);color:var(--white);
+    font-family:var(--sans);text-transform:uppercase;font-size:13px;letter-spacing:3px;font-weight:500;
+    padding:18px 40px;border-radius:2px;border:1px solid var(--copper);
+    transition:background .3s ease,color .3s ease;cursor:pointer;
+  }
+  .btn:hover{background:#946249}
+  .btn-outline{
+    display:inline-block;background:transparent;color:var(--copper);
+    font-family:var(--sans);text-transform:uppercase;font-size:12px;letter-spacing:3px;font-weight:500;
+    padding:16px 40px;border-radius:2px;border:1px solid var(--copper);
+    transition:background .3s ease,color .3s ease;cursor:pointer;
+  }
+  .btn-outline:hover{background:var(--copper);color:var(--white)}
+
+  /* ================= NÚMEROS ================= */
+  .numbers{background:var(--bg-alt);padding:72px 0}
+  .numbers-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .num-col{
+    padding:16px 32px;text-align:center;border-left:1px solid rgba(168,112,86,0.2);
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  }
+  .num-col:first-child{border-left:none}
+  .num-col .num{font-family:var(--serif);font-size:clamp(40px,4vw,56px);font-weight:400;color:var(--white);line-height:1.1}
+  .num-col .label{margin-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--copper);font-weight:500}
+  .num-col .gptw-img{height:56px;width:auto;margin:0 auto}
+  .num-col .gptw-fallback{display:none;font-family:var(--serif);font-size:clamp(40px,4vw,56px)}
+
+  /* ================= AVALIAÇÕES GOOGLE ================= */
+  .reviews{padding:120px 0;text-align:center}
+  .stars{font-size:30px;letter-spacing:10px;color:var(--copper);margin:28px 0 8px}
+  .reviews .score{font-family:var(--serif);font-size:clamp(48px,5vw,64px);font-weight:400}
+  .reviews .score span{font-size:22px;color:var(--txt-3);font-family:var(--sans);letter-spacing:1px}
+  .reviews .count{margin-top:6px;font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--txt-3)}
+  .reviews .lead{max-width:620px;margin:36px auto 56px;color:var(--txt-2);font-size:17px;line-height:1.7;font-weight:300}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;text-align:left;align-items:stretch}
+  .review-card{
+    background:#1C1C1C;border:1px solid var(--border);border-radius:8px;
+    padding:36px 32px;display:flex;flex-direction:column;
+  }
+  .review-card .review-stars{color:var(--copper);font-size:14px;letter-spacing:5px;margin-bottom:20px}
+  .review-card p{font-size:15px;line-height:1.8;color:var(--txt-2);font-weight:300;flex:1}
+  .review-card .review-src{
+    margin-top:28px;display:flex;align-items:center;gap:10px;
+    font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--txt-3);
+  }
+  .review-card .g-badge{
+    width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--sans);font-weight:600;font-size:13px;color:var(--white);
+  }
+
+  /* ================= QUEM SOMOS ================= */
+  .founders{display:grid;grid-template-columns:1fr 1fr;min-height:800px}
+  .founders-img{position:relative}
+  .founders-img .ph-wrap{position:absolute;inset:0}
+  .founders-txt{padding:100px 80px;display:flex;flex-direction:column;justify-content:center}
+  .founders-txt h2{font-family:var(--serif);font-size:clamp(32px,3.4vw,42px);font-weight:400;line-height:1.2;margin:20px 0 32px}
+  .founders-txt p{font-size:16px;line-height:1.8;color:var(--txt-2);font-weight:300}
+  .tags{display:flex;flex-wrap:wrap;gap:12px;margin:40px 0}
+  .tag{border:1px solid var(--border-strong);padding:10px 20px;border-radius:2px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--txt-2)}
+  .book{height:160px;width:128px;margin-bottom:32px}
+  .book .ph-wrap{width:100%;height:100%;border-radius:4px}
+  .link-copper{color:var(--copper);font-size:14px;letter-spacing:1px;transition:opacity .3s}
+  .link-copper:hover{opacity:.7}
+
+  /* ================= PODCAST ================= */
+  .podcast{background:var(--bg-alt);padding:120px 0}
+  .podcast-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center}
+  .podcast-logo{height:72px;width:auto;margin-bottom:36px}
+  .podcast-logo-fallback{display:none;font-family:var(--serif);font-size:28px;margin-bottom:36px}
+  .podcast h2{font-family:var(--serif);font-size:clamp(30px,3vw,38px);font-weight:400;line-height:1.25;margin-bottom:20px}
+  .podcast .sub{font-size:16px;line-height:1.7;color:var(--txt-2);font-weight:300;margin-bottom:44px}
+  .podcast-mosaic{border-radius:8px;overflow:hidden}
+  .podcast-mosaic .ph-wrap{width:100%;border-radius:8px;min-height:280px}
+  .podcast-mosaic img{width:100%;height:auto;object-fit:contain}
+
+  /* ================= IMPRENSA ================= */
+  .press{padding:120px 0}
+  .press .eyebrow-row{text-align:center;margin-bottom:64px}
+  .press-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .press-card{display:block}
+  .press-card .press-head{
+    font-family:var(--serif);font-size:24px;letter-spacing:2px;margin-bottom:20px;color:var(--white);
+  }
+  .press-card .press-head span{font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--txt-3);display:block;margin-top:6px}
+  .press-media{
+    aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--border);
+    transition:border-color .3s ease,transform .3s ease;
+  }
+  a.press-card:hover .press-media{border-color:var(--border-strong);transform:translateY(-4px)}
+  .press-media .ph-wrap{width:100%;height:100%}
+  .press-media iframe{width:100%;height:100%;border:0;display:block}
+  .press-caption{margin-top:18px;font-size:14px;line-height:1.6;color:var(--txt-2);font-weight:300}
+  .press-caption .read-more{color:var(--copper);margin-left:6px;white-space:nowrap}
+
+  /* ================= DEPOIMENTOS ================= */
+  .videos{background:var(--bg-alt);padding:120px 0}
+  .videos h2{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:400;margin:20px 0 56px}
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .video-card{display:block}
+  .video-embed{
+    aspect-ratio:16/9;border-radius:8px;overflow:hidden;
+    border:1px solid var(--border);background:#1C1C1C;
+  }
+  .video-embed iframe{width:100%;height:100%;border:0;display:block}
+  .video-thumb{
+    position:relative;aspect-ratio:16/9;background:#1C1C1C;border-radius:8px;
+    border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .play{
+    width:56px;height:56px;border:1.5px solid var(--white);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+    background:rgba(21,21,21,0.3);backdrop-filter:blur(4px);
+  }
+  .play::after{content:"";display:block;width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--white);margin-left:4px}
+  .video-label{margin-top:18px}
+  .video-label .name{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--copper);font-weight:500}
+  .video-label .role{margin-top:6px;font-size:14px;color:var(--txt-2);font-weight:300}
+
+  /* ================= FAQ ================= */
+  .faq{padding:120px 0}
+  .faq h2{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.2;max-width:700px;margin:20px 0 12px}
+  .faq .sub{font-size:15px;color:var(--txt-3);font-weight:300;max-width:600px;margin-bottom:64px;line-height:1.7}
+  .faq-item{border-bottom:1px solid rgba(255,255,255,0.08)}
+  .faq-item:first-of-type{border-top:1px solid rgba(255,255,255,0.08)}
+  .faq-q{
+    width:100%;background:none;border:none;color:var(--white);font-family:var(--sans);
+    font-size:16px;text-align:left;padding:28px 48px 28px 0;cursor:pointer;position:relative;font-weight:400;
+  }
+  .faq-q::after{
+    content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+    color:var(--copper);font-size:22px;font-weight:300;transition:transform .3s ease;
+  }
+  .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .faq-a p{padding:0 48px 28px 0;font-size:15px;line-height:1.8;color:var(--txt-2);font-weight:300;max-width:760px}
+
+  /* ================= MENSAGEM FINAL ================= */
+  .final{background:var(--bg-alt);padding:120px 0;text-align:center}
+  .final h2{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.2;max-width:760px;margin:20px auto 16px}
+  .final .sub{font-size:16px;color:var(--txt-2);font-weight:300;max-width:560px;margin:0 auto 56px}
+  .final-video{max-width:880px;margin:0 auto;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .final-video .video-thumb{aspect-ratio:16/9;border:none;border-radius:0}
+  .final-sign{margin-top:40px;font-family:var(--serif);font-size:24px;color:var(--txt-2);font-style:italic}
+  .final-names{margin-top:8px;font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--copper)}
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--bg-footer);border-top:1px solid var(--copper);padding:72px 0 48px;text-align:center}
+  .footer-logo-img{height:44px;width:auto;margin:0 auto 40px}
+  .footer-logo-fallback{display:none;font-family:var(--serif);font-size:32px;letter-spacing:8px;margin-bottom:40px}
+  .footer-links{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.5)}
+  .footer-links a:hover{color:var(--copper)}
+  .footer-copy{margin-top:48px;font-size:12px;color:rgba(255,255,255,0.25)}
+
+  /* ================= MOBILE ================= */
+  @media(max-width:900px){
+    .container{padding:0 24px}
+    .hero-content{padding:140px 24px 100px}
+    .btn-nav{padding:10px 14px;font-size:10px}
+    .numbers-grid{grid-template-columns:1fr 1fr;gap:40px 0}
+    .num-col:nth-child(3){border-left:none}
+    .review-grid{grid-template-columns:1fr}
+    .founders{grid-template-columns:1fr}
+    .founders-img{min-height:420px}
+    .founders-img .ph-wrap{position:relative;height:420px}
+    .founders-txt{padding:72px 24px}
+    .podcast-grid{grid-template-columns:1fr;gap:48px}
+    .press-grid{grid-template-columns:1fr}
+    .video-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:480px){
+    .numbers-grid{grid-template-columns:1fr}
+    .num-col{border-left:none;border-top:1px solid rgba(168,112,86,0.2);padding:28px 16px}
+    .num-col:first-child{border-top:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="nav">
+  <div class="container">
+    <a href="#">
+      <img class="logo-img" src="LOGO_2025_HORIZONTAL_BRANCO-8.png" alt="Monteo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="logo-fallback">MONTEO</span>
+    </a>
+    <!-- AJUSTAR: link do WhatsApp do especialista -->
+    <a class="btn-nav" href="#" target="_blank" rel="noopener">Falar com especialista</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="FOTOS_PROFISSIONAIS_KAREN_E_JUCIEL-808.jpg" alt="" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Estratégia patrimonial para médicos</span>
+    <h1>Obrigado pelo<br>seu tempo, Doutor.</h1>
+    <p>Você acabou de conhecer uma estratégia utilizada por médicos e empresários que desejam construir patrimônio com inteligência e visão de longo prazo. Criamos esta página para que você conheça melhor quem somos, nossa história e por que tantas pessoas confiam na Monteo.</p>
+    <a class="btn" href="#monteo">Conhecer a Monteo</a>
+  </div>
+</header>
+
+<!-- ================= NÚMEROS ================= -->
+<section class="numbers" id="monteo">
+  <div class="container">
+    <div class="numbers-grid">
+      <div class="num-col reveal">
+        <div class="num">R$ +1,7 Bi</div>
+        <div class="label">Sob assessoria</div>
+      </div>
+      <div class="num-col reveal">
+        <div class="num">+3.500</div>
+        <div class="label">Clientes ativos</div>
+      </div>
+      <div class="num-col reveal">
+        <div class="num">+15 Anos</div>
+        <div class="label">De experiência</div>
+      </div>
+      <div class="num-col reveal">
+        <img class="gptw-img" src="gptw-oficial.png" alt="GPTW"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="gptw-fallback num">GPTW</div>
+        <div class="label">Empresa certificada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AVALIAÇÕES GOOGLE ================= -->
+<section class="reviews">
+  <div class="container">
+    <span class="eyebrow reveal">O que nossos clientes dizem</span>
+    <div class="stars reveal">★★★★★</div>
+    <div class="score reveal">5,0 <span>no Google</span></div>
+    <div class="count reveal">212 avaliações de clientes</div>
+    <p class="lead reveal">A confiança é construída ao longo do tempo. Temos orgulho de manter uma avaliação máxima no Google, refletindo a experiência dos clientes que confiaram na Monteo em sua construção patrimonial.</p>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p>"Conheço a empresa desde 2020, como cliente fui bem atendido em todos os momentos. Me explicaram todas as estratégias possíveis de como utilizar o produto, responderam a várias dúvidas, das simples às complexas. A equipe sempre profissional, educada e com uma alegria contagiante. Recomendo para meus amigos, familiares e aos meus clientes."</p>
+        <div class="review-src"><span class="g-badge">G</span> Avaliação no Google</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p>"Conheci a Monteo por indicação de um cliente e simplesmente é uma empresa fantástica! O atendimento foi muito rápido, informações claras e objetivas sem nenhuma enrolação! Já vou começar a investir em consórcio porque sei que vale a pena para meu futuro! 🙌🏽"</p>
+        <div class="review-src"><span class="g-badge">G</span> Avaliação no Google</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p>"Apesar da grande vontade de investir nunca coloquei em prática, conhecendo a Monteo tive a oportunidade de avançar com este passo super importante… Me sinto muito seguro com a forma de trabalho e transparência da empresa. Agradeço por agregarem na minha vida, vocês fazem a diferença!"</p>
+        <div class="review-src"><span class="g-badge">G</span> Avaliação no Google</div>
+      </div>
+    </div>
+    <a class="btn-outline reveal" href="https://www.google.com/search?q=monteo&rlz=1C1UEAD_enBR1142BR1142&oq=monteo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg8MgYIARBFGDsyBggCEEUYOzIHCAMQABiABDIGCAQQRRg9MgYIBRBFGEEyBggGEEUYQTIGCAcQRRhB0gEIMTU4M2owajSoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
+  </div>
+</section>
+
+<!-- ================= QUEM SOMOS ================= -->
+<section class="founders">
+  <div class="founders-img">
+    <div class="ph-wrap ph" data-label="Foto Juciel & Karen">
+      <img src="FOTOS_PROFISSIONAIS_KAREN_E_JUCIEL-808.jpg" alt="Juciel Oliveira e Karen Hasse, fundadores da Monteo" onerror="this.remove()">
+    </div>
+  </div>
+  <div class="founders-txt">
+    <span class="eyebrow reveal">Os fundadores</span>
+    <h2 class="reveal">Uma história construída através de relacionamentos, resultados e propósito.</h2>
+    <p class="reveal">Juciel Oliveira e Karen Hasse fundaram a Monteo com uma missão clara: democratizar o acesso a estratégias patrimoniais inteligentes para médicos, empresários e profissionais liberais.</p>
+    <div class="tags reveal">
+      <span class="tag">Fundadores da Monteo</span>
+      <span class="tag">Hosts do Receita de Sucesso Podcast</span>
+      <span class="tag">Autores Best Sellers</span>
+      <span class="tag">Empresários e Palestrantes</span>
+    </div>
+    <div class="book reveal">
+      <div class="ph-wrap ph" data-label="Livro">
+        <img src="livro_receita_de_sucesso.png" alt="Livro Receita de Sucesso — Os Pilares dos Empresários Bem-sucedidos" onerror="this.remove()">
+      </div>
+    </div>
+    <a class="link-copper reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">→ Instagram da Monteo</a>
+  </div>
+</section>
+
+<!-- ================= PODCAST ================= -->
+<section class="podcast">
+  <div class="container">
+    <div class="podcast-grid">
+      <div class="podcast-info">
+        <img class="podcast-logo reveal" src="Ativo_8_216x.png" alt="Receita de Sucesso Podcast"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div class="podcast-logo-fallback">Receita de Sucesso Podcast</div>
+        <h2 class="reveal">Nossos fundadores entrevistam constantemente alguns dos maiores empresários e líderes do Brasil.</h2>
+        <p class="sub reveal">Empresários, executivos, atletas e líderes que construíram resultados extraordinários em suas áreas de atuação.</p>
+        <a class="btn-outline reveal" href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Ver o canal</a>
+      </div>
+      <div class="podcast-mosaic reveal">
+        <div class="ph-wrap ph" data-label="Mosaico de convidados (foto-convidados.png)">
+          <img src="foto-convidados.png" alt="Convidados do Receita de Sucesso Podcast" onerror="this.remove()">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPRENSA ================= -->
+<section class="press">
+  <div class="container">
+    <div class="eyebrow-row reveal"><span class="eyebrow">Presença na mídia</span></div>
+    <div class="press-grid">
+
+      <a class="press-card reveal" href="https://istoe.com.br/consorcio-imobiliario-cresce-como-estrategia-de-investimento" target="_blank" rel="noopener">
+        <div class="press-head">IstoÉ <span>Matéria</span></div>
+        <div class="press-media">
+          <div class="ph-wrap ph" data-label="Imagem da matéria — IstoÉ (materia_istoe.png)">
+            <img src="materia_istoe.png" alt="Matéria da IstoÉ sobre consórcio imobiliário" onerror="this.remove()">
+          </div>
+        </div>
+        <div class="press-caption">Consórcio imobiliário cresce como estratégia de investimento.<span class="read-more">Ler a matéria →</span></div>
+      </a>
+
+      <div class="press-card reveal">
+        <div class="press-head">CNBC <span>Entrevista</span></div>
+        <div class="press-media">
+          <iframe src="https://www.youtube.com/embed/QvnXtucQtzc" title="Entrevista Monteo à CNBC" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="press-caption">Entrevista dos fundadores da Monteo à CNBC.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<section class="videos">
+  <div class="container">
+    <span class="eyebrow reveal">Depoimentos</span>
+    <h2 class="reveal">A experiência de quem já conhece a Monteo.</h2>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/GNMk80NnMfw" title="Depoimento Dr. Carlos Manfrim" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">
+          <div class="name">Dr. Carlos Manfrim</div>
+          <div class="role">Cirurgião Plástico</div>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/5pEkPw2L2DQ" title="Depoimento Thiago Reis" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">
+          <div class="name">Thiago Reis</div>
+          <div class="role">Mentor de Vendas</div>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/omfdgae1BQE" title="Depoimento Max Jefferson" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">
+          <div class="name">Max Jefferson</div>
+          <div class="role">Cliente Monteo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <div class="container">
+    <span class="eyebrow reveal">Dúvidas frequentes</span>
+    <h2 class="reveal">As dúvidas mais comuns sobre a estratégia apresentada.</h2>
+    <p class="sub reveal">Selecionamos algumas das perguntas mais frequentes feitas por médicos, empresários e profissionais liberais.</p>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Consórcio só vale a pena se contemplar rápido?</button>
+        <div class="faq-a"><p>Não. A estratégia apresentada é de construção patrimonial no longo prazo — a contemplação é uma etapa do processo, não o objetivo final. O planejamento considera diferentes cenários e prazos desde o início.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">E se minha contemplação demorar mais do que o esperado?</button>
+        <div class="faq-a"><p>O planejamento já contempla essa possibilidade. Existem mecanismos, como a estratégia de lances, que permitem maior previsibilidade — e a assessoria acompanha cada etapa para ajustar o caminho quando necessário.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Existe risco nesse tipo de estratégia?</button>
+        <div class="faq-a"><p>Como toda decisão financeira, exige critério. Por isso trabalhamos exclusivamente com administradoras autorizadas e fiscalizadas pelo Banco Central, e cada estratégia é desenhada de acordo com o perfil e os objetivos de cada cliente.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Por que médicos e empresários utilizam esse tipo de estratégia?</button>
+        <div class="faq-a"><p>Porque ela une disciplina de aporte, ausência de juros de financiamento e previsibilidade — características valorizadas por quem tem boa capacidade de geração de renda e busca acelerar a construção de patrimônio.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Preciso investir grandes valores para começar?</button>
+        <div class="faq-a"><p>Não. A estratégia é dimensionada de acordo com a realidade e os objetivos de cada pessoa. O mais importante não é o valor inicial, e sim a consistência e o planejamento ao longo do tempo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">A Monteo trabalha apenas com consórcios?</button>
+        <div class="faq-a"><p>O consórcio é o principal instrumento que utilizamos, mas nossa atuação é de assessoria patrimonial: olhamos para o contexto completo de cada cliente para que a estratégia faça sentido dentro do seu planejamento.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como a Monteo é remunerada?</button>
+        <div class="faq-a"><p>De forma transparente. Nossa remuneração vem das administradoras parceiras — o cliente não paga nada adicional pela assessoria e pelo acompanhamento da Monteo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Sou obrigado a contratar algo após a reunião?</button>
+        <div class="faq-a"><p>De forma alguma. A reunião tem caráter consultivo. A decisão é sua, no seu tempo — nosso papel é apresentar a estratégia com clareza para que você decida com segurança.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Qual o diferencial da Monteo frente a outras empresas?</button>
+        <div class="faq-a"><p>Mais de 15 anos de experiência, R$ 1,7 bilhão sob assessoria e um acompanhamento próximo do início à contemplação — e além dela. Não vendemos cotas: construímos estratégias e relacionamentos de longo prazo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Onde posso aprender mais sobre construção patrimonial e consórcios?</button>
+        <div class="faq-a"><p>Em nossos canais: o Receita de Sucesso Podcast, o Monteocast, nosso livro publicado pela Alta Books e os conteúdos do Instagram da Monteo. Os links estão ao final desta página.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENSAGEM FINAL ================= -->
+<section class="final">
+  <div class="container">
+    <span class="eyebrow reveal">Uma mensagem para você</span>
+    <h2 class="reveal">Mais do que estratégias, construímos relações de confiança.</h2>
+    <p class="sub reveal">Uma mensagem pessoal de nossos fundadores sobre o propósito e a missão da Monteo.</p>
+    <div class="final-video reveal">
+      <!-- Substituir pelo embed do vídeo dos fundadores (~2 min) -->
+      <div class="video-thumb ph-wrap ph" data-label="Vídeo dos fundadores (~2 min)">
+        <div class="play"></div>
+      </div>
+    </div>
+    <div class="final-sign reveal">"Obrigado pelo seu tempo e pela sua confiança."</div>
+    <div class="final-names reveal">Juciel Oliveira &amp; Karen Hasse</div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <img class="footer-logo-img" src="LOGO_2025_HORIZONTAL_BRANCO-8.png" alt="Monteo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <div class="footer-logo-fallback">MONTEO</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/watch?v=89_4jaPNwxg&list=PLVU13ZzvmqTz4hymX_FdcQUmEDDr1bCPG" target="_blank" rel="noopener">Monteocast</a>
+      <a href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Receita de Sucesso</a>
+      <a href="https://monteo.com.br" target="_blank" rel="noopener">monteo.com.br</a>
+    </div>
+    <div class="footer-copy">© 2026 Monteo. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var answer = item.querySelector('.faq-a');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Reveal on scroll
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  // Remove placeholder label when real image loads
+  document.querySelectorAll('.ph-wrap img').forEach(function(img){
+    if(img.complete && img.naturalWidth > 0){ img.parentElement.classList.remove('ph'); }
+    img.addEventListener('load', function(){ img.parentElement.classList.remove('ph'); });
+  });
+</script>
+
+</body>
+</html>
