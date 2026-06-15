@@ -138,27 +138,29 @@
   .google-print{max-width:520px;margin:32px auto 8px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff}
   .google-print img{width:100%;height:auto;display:block}
   .reviews .lead{max-width:620px;margin:36px auto 56px;color:var(--txt-2);font-size:17px;line-height:1.7;font-weight:300}
-  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;text-align:left;align-items:stretch}
+  .review-carousel{position:relative;max-width:760px;margin:0 auto 32px}
+  .review-carousel .carousel-btn.prev{left:-4px}
+  .review-carousel .carousel-btn.next{right:-4px}
+  .review-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+  .review-slide{min-width:100%;padding:0 8px;box-sizing:border-box}
   .review-card{
     background:#1C1C1C;border:1px solid var(--border);border-radius:8px;
-    padding:36px 32px;display:flex;flex-direction:column;
+    padding:40px;display:flex;flex-direction:column;text-align:left;min-height:340px;
   }
-  .review-card .review-stars{color:var(--copper);font-size:14px;letter-spacing:5px;margin-bottom:20px}
-  .review-card p{font-size:15px;line-height:1.8;color:var(--txt-2);font-weight:300;flex:1}
-  .review-card .review-author{
-    margin-top:28px;display:flex;align-items:center;gap:12px;
-  }
+  .review-card .review-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
   .review-card .review-avatar{
-    width:40px;height:40px;border-radius:50%;flex:none;
+    width:44px;height:44px;border-radius:50%;flex:none;
     display:flex;align-items:center;justify-content:center;
-    font-family:var(--sans);font-weight:600;font-size:16px;color:var(--white);
+    font-family:var(--sans);font-weight:600;font-size:18px;color:var(--white);
     background:linear-gradient(135deg,#A87056,#7d4f38);
   }
-  .review-card .review-meta .ra-name{font-size:14px;font-weight:500;color:var(--white)}
+  .review-card .review-meta .ra-name{font-size:15px;font-weight:500;color:var(--white)}
   .review-card .review-meta .ra-src{
     margin-top:3px;display:flex;align-items:center;gap:6px;
     font-size:11px;letter-spacing:1px;color:var(--txt-3);
   }
+  .review-card .review-stars{color:var(--copper);font-size:15px;letter-spacing:5px;margin-bottom:20px}
+  .review-card p{font-size:15px;line-height:1.8;color:var(--txt-2);font-weight:300}
   .review-card .g-badge{
     width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);
     display:flex;align-items:center;justify-content:center;
@@ -205,6 +207,15 @@
     background:rgba(255,255,255,0.25);transition:background .3s ease,width .3s ease;
   }
   .carousel-dot.active{background:var(--copper);width:24px;border-radius:5px}
+  .btn-instagram{
+    display:inline-flex;align-items:center;gap:10px;margin-top:40px;
+    background:transparent;color:var(--copper);
+    font-family:var(--sans);text-transform:uppercase;font-size:12px;letter-spacing:3px;font-weight:500;
+    padding:14px 32px;border-radius:2px;border:1px solid var(--copper);
+    transition:background .3s ease,color .3s ease;
+  }
+  .btn-instagram:hover{background:var(--copper);color:var(--white)}
+  .btn-instagram svg{flex:none}
 
   /* ================= CONTEÚDO / PODCASTS ================= */
   .podcast{background:var(--bg-alt);padding:120px 0}
@@ -283,6 +294,14 @@
   .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
   .faq-a p{padding:0 48px 28px 0;font-size:15px;line-height:1.8;color:var(--txt-2);font-weight:300;max-width:760px}
+  .faq-btn{
+    display:inline-block;margin:0 0 32px 0;
+    background:transparent;color:var(--copper);
+    font-family:var(--sans);text-transform:uppercase;font-size:12px;letter-spacing:2px;font-weight:500;
+    padding:12px 28px;border-radius:2px;border:1px solid var(--copper);
+    transition:background .3s ease,color .3s ease;
+  }
+  .faq-btn:hover{background:var(--copper);color:var(--white)}
 
   /* ================= MENSAGEM FINAL ================= */
   .final{background:var(--bg-alt);padding:120px 0;text-align:center}
@@ -310,7 +329,6 @@
     .btn-nav{padding:10px 14px;font-size:10px}
     .numbers-grid{grid-template-columns:1fr 1fr;gap:40px 0}
     .num-col:nth-child(3){border-left:none}
-    .review-grid{grid-template-columns:1fr}
     .strategies-grid{grid-template-columns:1fr}
     .founders{padding:80px 0}
     .founders-grid{grid-template-columns:1fr;gap:48px}
@@ -375,41 +393,52 @@
       <img src="print-google.png" alt="Perfil da Monteo no Google: 5,0 estrelas e 222 avaliações">
     </div>
     <p class="lead reveal">A confiança é construída ao longo do tempo. Temos orgulho de manter uma avaliação máxima no Google, refletindo a experiência dos clientes que confiaram na Monteo em sua construção patrimonial.</p>
-    <div class="review-grid">
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p>"Conheço a empresa desde 2020, como cliente fui bem atendido em todos os momentos. Me explicaram todas as estratégias possíveis de como utilizar o produto, responderam a várias dúvidas, das simples às complexas. A equipe sempre profissional, educada e com uma alegria contagiante. Recomendo para meus amigos, familiares e aos meus clientes."</p>
-        <div class="review-author">
-          <div class="review-avatar">T</div>
-          <div class="review-meta">
-            <div class="ra-name">Thiago Augusto</div>
-            <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+    <div class="review-carousel reveal" id="reviewCarousel">
+      <div class="review-track">
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-head">
+              <div class="review-avatar">T</div>
+              <div class="review-meta">
+                <div class="ra-name">Thiago Augusto</div>
+                <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p>"Conheço a empresa desde 2020, como cliente fui bem atendido em todos os momentos. Me explicaram todas as estratégias possíveis de como utilizar o produto, responderam a várias dúvidas, das simples às complexas. A equipe sempre profissional, educada e com uma alegria contagiante. Recomendo para meus amigos, familiares e aos meus clientes."</p>
+          </div>
+        </div>
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-head">
+              <div class="review-avatar">S</div>
+              <div class="review-meta">
+                <div class="ra-name">Sind Lopes</div>
+                <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p>"Conheci a Monteo por indicação de um cliente e simplesmente é uma empresa fantástica! O atendimento foi muito rápido, informações claras e objetivas sem nenhuma enrolação! Já vou começar a investir em consórcio porque sei que vale a pena para meu futuro! 🙌🏽"</p>
+          </div>
+        </div>
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-head">
+              <div class="review-avatar">M</div>
+              <div class="review-meta">
+                <div class="ra-name">Messias Alencar</div>
+                <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+              </div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p>"Quero deixar minha avaliação sobre a experiência incrível que tive com a Monteo. Desde o primeiro atendimento fui muito bem tratado, com total atenção, transparência e profissionalismo. Foi sensacional em todo o processo, tirando todas as dúvidas com paciência, explicando tudo de forma clara e passando muita confiança. Atendimento diferenciado, rápido e extremamente profissional. Dá para ver que realmente se preocupam com o cliente e busca a melhor solução. Estou muito satisfeito com a experiência e recomendo de olhos fechados."</p>
           </div>
         </div>
       </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p>"Conheci a Monteo por indicação de um cliente e simplesmente é uma empresa fantástica! O atendimento foi muito rápido, informações claras e objetivas sem nenhuma enrolação! Já vou começar a investir em consórcio porque sei que vale a pena para meu futuro! 🙌🏽"</p>
-        <div class="review-author">
-          <div class="review-avatar">S</div>
-          <div class="review-meta">
-            <div class="ra-name">Sind Lopes</div>
-            <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p>"Quero deixar minha avaliação sobre a experiência incrível que tive com a Monteo. Desde o primeiro atendimento fui muito bem tratado, com total atenção, transparência e profissionalismo. Foi sensacional em todo o processo, tirando todas as dúvidas com paciência, explicando tudo de forma clara e passando muita confiança. Atendimento diferenciado, rápido e extremamente profissional. Dá para ver que realmente se preocupam com o cliente e busca a melhor solução. Estou muito satisfeito com a experiência e recomendo de olhos fechados."</p>
-        <div class="review-author">
-          <div class="review-avatar">M</div>
-          <div class="review-meta">
-            <div class="ra-name">Messias Alencar</div>
-            <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
-          </div>
-        </div>
-      </div>
+      <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+      <button class="carousel-btn next" aria-label="Próxima">›</button>
     </div>
+    <div class="carousel-dots" id="reviewDots"></div>
     <a class="btn-outline reveal" href="https://www.google.com/search?q=monteo&rlz=1C1UEAD_enBR1142BR1142&oq=monteo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg8MgYIARBFGDsyBggCEEUYOzIHCAMQABiABDIGCAQQRRg9MgYIBRBFGEEyBggGEEUYQTIGCAcQRRhB0gEIMTU4M2owajSoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
   </div>
 </section>
@@ -489,7 +518,6 @@
       </div>
     </div>
     <div class="book-caption reveal">Receita de Sucesso — publicado pela Alta Books</div>
-    <a class="link-copper reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">Conheça a Monteo no Instagram →</a>
       </div>
     </div>
   </div>
@@ -514,6 +542,10 @@
       <button class="carousel-btn next" aria-label="Próxima">›</button>
     </div>
     <div class="carousel-dots" id="officeDots"></div>
+    <a class="btn-instagram reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      Instagram da Monteo
+    </a>
   </div>
 </section>
 
@@ -612,44 +644,40 @@
 
     <div class="faq-list reveal">
       <div class="faq-item">
+        <button class="faq-q">Por que a Monteo pagou pela minha consulta?</button>
+        <div class="faq-a"><p>Porque valorizamos o seu tempo. Ao invés de pedir alguns minutos da sua agenda, preferimos merecer a oportunidade de apresentar nosso trabalho e compartilhar uma estratégia patrimonial que acreditamos poder gerar valor no longo prazo.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q">Consórcio só vale a pena se contemplar rápido?</button>
-        <div class="faq-a"><p>Não. A estratégia apresentada é de construção patrimonial no longo prazo. A contemplação é uma etapa do processo, não o objetivo final, e o planejamento considera diferentes cenários e prazos desde o início.</p></div>
+        <div class="faq-a"><p>Não. Embora a contemplação antecipada possa acelerar os resultados, o principal diferencial está na estratégia utilizada. Mesmo em cenários de longo prazo, é possível construir patrimônio de forma eficiente, preservando liquidez e reduzindo a necessidade de utilizar grandes volumes de capital próprio. Por isso, mais importante do que a velocidade da contemplação é a estratégia.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">E se minha contemplação demorar mais do que o esperado?</button>
-        <div class="faq-a"><p>O planejamento já contempla essa possibilidade. Existem mecanismos, como a estratégia de lances, que permitem maior previsibilidade, e a assessoria acompanha cada etapa para ajustar o caminho quando necessário.</p></div>
+        <div class="faq-a"><p>A contemplação depende de fatores como as características do grupo, a estratégia adotada e a participação ativa do cliente. Por isso, a Monteo realiza uma gestão estratégica contínua buscando potencializar as oportunidades de contemplação. Além disso, mais importante do que a velocidade da contemplação é a estratégia utilizada para a construção patrimonial.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Existe risco nesse tipo de estratégia?</button>
-        <div class="faq-a"><p>Como toda decisão financeira, exige critério. Por isso trabalhamos exclusivamente com administradoras autorizadas e fiscalizadas pelo Banco Central, e cada estratégia é desenhada de acordo com o perfil e os objetivos de cada cliente.</p></div>
+        <div class="faq-a"><p>Como toda decisão financeira, essa estratégia exige planejamento e critérios bem definidos. As administradoras de consórcio são regulamentadas e fiscalizadas pelo Banco Central, trazendo segurança e transparência para o segmento. Por isso, a Monteo atua com algumas das principais administradoras do mercado e busca estruturar estratégias alinhadas ao perfil de cada cliente.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Por que médicos e empresários utilizam esse tipo de estratégia?</button>
-        <div class="faq-a"><p>Porque ela une disciplina de aporte, ausência de juros de financiamento e previsibilidade. São características valorizadas por quem tem boa capacidade de geração de renda e busca acelerar a construção de patrimônio.</p></div>
+        <button class="faq-q">Por que médicos utilizam esse tipo de estratégia?</button>
+        <div class="faq-a"><p>Porque ela permite acelerar a construção patrimonial, preservando liquidez e reduzindo a necessidade de utilizar grandes volumes de capital próprio. Por isso, é uma estratégia amplamente utilizada por profissionais que buscam crescimento patrimonial no longo prazo.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Preciso investir grandes valores para começar?</button>
-        <div class="faq-a"><p>Não. A estratégia é dimensionada de acordo com a realidade e os objetivos de cada pessoa. O mais importante não é o valor inicial, e sim a consistência e o planejamento ao longo do tempo.</p></div>
+        <div class="faq-a"><p>Não. Um dos principais diferenciais dessa estratégia é justamente a possibilidade de construir patrimônio de forma gradual, através de aportes mensais planejados, sem a necessidade de imobilizar grandes volumes de capital próprio.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">A Monteo trabalha apenas com consórcios?</button>
-        <div class="faq-a"><p>O consórcio é o principal instrumento que utilizamos, mas nossa atuação é de assessoria patrimonial: olhamos para o contexto completo de cada cliente para que a estratégia faça sentido dentro do seu planejamento.</p></div>
+        <button class="faq-q">Qual o diferencial da Monteo frente a outras empresas que atuam com consórcios?</button>
+        <div class="faq-a"><p>Um consórcio sem estratégia é apenas um produto. O diferencial da Monteo está na forma como essa ferramenta é utilizada, através de estratégia, assessoria e acompanhamento voltados para a construção patrimonial de longo prazo.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Como a Monteo é remunerada?</button>
-        <div class="faq-a"><p>De forma transparente. Nossa remuneração vem das administradoras parceiras, e o cliente não paga nada adicional pela assessoria e pelo acompanhamento da Monteo.</p></div>
+        <div class="faq-a"><p>A Monteo é remunerada através das parcerias comerciais com as administradoras dos produtos utilizados nas estratégias. Nosso foco é construir relações de longo prazo, entregando estratégia, assessoria e acompanhamento aos nossos clientes.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Sou obrigado a contratar algo após a reunião?</button>
-        <div class="faq-a"><p>De forma alguma. A reunião tem caráter consultivo e a decisão é sua, no seu tempo. Nosso papel é apresentar a estratégia com clareza para que você decida com segurança.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Qual o diferencial da Monteo frente a outras empresas?</button>
-        <div class="faq-a"><p>Mais de 15 anos de experiência, R$ 1,7 bilhão sob assessoria e um acompanhamento próximo em todas as etapas, da contratação à contemplação e além dela. Não vendemos cotas: construímos estratégias e relacionamentos de longo prazo.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Onde posso aprender mais sobre construção patrimonial e consórcios?</button>
-        <div class="faq-a"><p>Em nossos canais: o Receita de Sucesso Podcast, o Monteo Cast, nosso livro publicado pela Alta Books e os conteúdos do Instagram da Monteo. Os links estão ao final desta página.</p></div>
+        <button class="faq-q">Onde posso aprender mais sobre construção patrimonial através de consórcios?</button>
+        <div class="faq-a"><p>Você pode acompanhar o Monteo Cast, canal oficial de conteúdo da Monteo sobre construção patrimonial e estratégias de longo prazo. Os episódios estão disponíveis gratuitamente no YouTube e Spotify.</p><a class="faq-btn" href="https://www.youtube.com/watch?v=89_4jaPNwxg&list=PLVU13ZzvmqTz4hymX_FdcQUmEDDr1bCPG" target="_blank" rel="noopener">Conhecer o Monteo Cast →</a></div>
       </div>
     </div>
   </div>
@@ -703,20 +731,20 @@
     img.addEventListener('load', function(){ img.parentElement.classList.remove('ph'); });
   });
 
-  // Office carousel
-  (function(){
-    var carousel = document.getElementById('officeCarousel');
+  // Carousel factory (no autoplay)
+  function initCarousel(carouselId, trackSelector, slideSelector, dotsId){
+    var carousel = document.getElementById(carouselId);
     if(!carousel) return;
-    var track = carousel.querySelector('.carousel-track');
-    var slides = carousel.querySelectorAll('.carousel-slide');
-    var dotsWrap = document.getElementById('officeDots');
+    var track = carousel.querySelector(trackSelector);
+    var slides = carousel.querySelectorAll(slideSelector);
+    var dotsWrap = document.getElementById(dotsId);
     var index = 0;
     var total = slides.length;
 
     for(var i=0;i<total;i++){
       var d = document.createElement('button');
       d.className = 'carousel-dot' + (i===0?' active':'');
-      d.setAttribute('aria-label','Foto '+(i+1));
+      d.setAttribute('aria-label','Item '+(i+1));
       (function(n){ d.addEventListener('click', function(){ go(n); }); })(i);
       dotsWrap.appendChild(d);
     }
@@ -729,11 +757,10 @@
     }
     carousel.querySelector('.prev').addEventListener('click', function(){ go(index-1); });
     carousel.querySelector('.next').addEventListener('click', function(){ go(index+1); });
+  }
 
-    // auto-advance every 6s
-    var timer = setInterval(function(){ go(index+1); }, 6000);
-    carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
-  })();
+  initCarousel('officeCarousel', '.carousel-track', '.carousel-slide', 'officeDots');
+  initCarousel('reviewCarousel', '.review-track', '.review-slide', 'reviewDots');
 </script>
 
 </body>
