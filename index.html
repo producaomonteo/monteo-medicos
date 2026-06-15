@@ -61,7 +61,7 @@
     width:calc(100% - 80px);max-width:1320px;
     background:rgba(21,21,21,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     border:1px solid rgba(255,255,255,0.07);border-radius:14px;
-    padding:14px 26px;display:flex;align-items:center;justify-content:space-between;
+    padding:14px 26px;display:flex;align-items:center;justify-content:center;
   }
   .nav .logo-img{height:32px;width:auto}
   .nav .logo-fallback{font-family:var(--serif);font-size:26px;letter-spacing:6px;font-weight:500;display:none}
@@ -102,8 +102,8 @@
 
   /* ================= VÍDEO BOAS-VINDAS ================= */
   .welcome{padding:120px 0 80px;text-align:center}
-  .welcome h2{font-family:var(--serif);font-size:clamp(32px,3.6vw,44px);font-weight:400;line-height:1.2;max-width:720px;margin:20px auto 16px}
-  .welcome .sub{font-size:16px;line-height:1.7;color:var(--txt-2);font-weight:300;max-width:600px;margin:0 auto 56px}
+  .welcome h2{font-family:var(--serif);font-size:clamp(32px,3.6vw,44px);font-weight:400;line-height:1.2;max-width:760px;margin:0 auto 48px}
+  .welcome-badge{display:inline-block;font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:1px;color:var(--copper);vertical-align:middle;white-space:nowrap}
   .welcome-video{max-width:880px;margin:0 auto;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
   .welcome-video .video-embed{aspect-ratio:16/9}
   .welcome-video .video-embed iframe{width:100%;height:100%;border:0;display:block}
@@ -180,6 +180,31 @@
   .book-caption{font-size:12px;color:var(--txt-3);font-style:italic;font-family:var(--serif);margin-bottom:32px}
   .link-copper{color:var(--copper);font-size:14px;letter-spacing:1px;transition:opacity .3s}
   .link-copper:hover{opacity:.7}
+
+  /* ================= ONDE RECEBEMOS (CARROSSEL) ================= */
+  .office{padding:120px 0;background:var(--bg-alt);text-align:center}
+  .office h2{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.2;margin:20px 0 16px}
+  .office .sub{font-size:16px;line-height:1.7;color:var(--txt-2);font-weight:300;max-width:620px;margin:0 auto 56px}
+  .carousel{position:relative;max-width:1000px;margin:0 auto;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+  .carousel-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+  .carousel-slide{min-width:100%;aspect-ratio:16/9;background:#1C1C1C}
+  .carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .carousel-btn{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+    width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+    background:rgba(10,10,10,0.55);color:#fff;font-size:20px;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    backdrop-filter:blur(4px);transition:background .3s ease;
+  }
+  .carousel-btn:hover{background:rgba(168,112,86,0.85)}
+  .carousel-btn.prev{left:18px}
+  .carousel-btn.next{right:18px}
+  .carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:24px}
+  .carousel-dot{
+    width:9px;height:9px;border-radius:50%;border:none;cursor:pointer;padding:0;
+    background:rgba(255,255,255,0.25);transition:background .3s ease,width .3s ease;
+  }
+  .carousel-dot.active{background:var(--copper);width:24px;border-radius:5px}
 
   /* ================= CONTEÚDO / PODCASTS ================= */
   .podcast{background:var(--bg-alt);padding:120px 0}
@@ -310,8 +335,6 @@
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="logo-fallback">MONTEO</span>
     </a>
-    <!-- AJUSTAR: link do WhatsApp do especialista -->
-    <a class="btn-nav" href="#" target="_blank" rel="noopener">Falar com especialista</a>
   </div>
 </nav>
 
@@ -325,7 +348,7 @@
   <div class="hero-content">
     <span class="eyebrow">Estratégia patrimonial para médicos</span>
     <h1>Obrigado pelo<br>seu tempo, Doutor.</h1>
-    <p>Você acabou de conhecer uma estratégia utilizada por médicos e empresários que desejam construir patrimônio com inteligência e visão de longo prazo. Criamos esta página para que você conheça melhor quem somos, nossa história e por que tantas pessoas confiam na Monteo.</p>
+    <p>Você acabou de conhecer uma estratégia utilizada por médicos que desejam construir patrimônio e desenvolver renda passiva no longo prazo. Porque o verdadeiro patrimônio não é apenas financeiro. É ter a liberdade de trabalhar cada vez mais por escolha e não por necessidade. Criamos esta página exclusiva para que você possa conhecer melhor quem somos e por que tantas pessoas confiam na Monteo.</p>
     <a class="btn" href="#monteo">Conhecer a Monteo</a>
   </div>
 </header>
@@ -333,12 +356,10 @@
 <!-- ================= VÍDEO BOAS-VINDAS ================= -->
 <section class="welcome">
   <div class="container">
-    <span class="eyebrow reveal">Uma mensagem de boas-vindas</span>
-    <h2 class="reveal">Antes de tudo, uma palavra de quem fundou a Monteo.</h2>
-    <p class="sub reveal">Neste vídeo, nosso fundador dá as boas-vindas e explica o que você vai encontrar nesta página.</p>
+    <h2 class="reveal">Uma mensagem do fundador e CEO da Monteo para você <span class="welcome-badge">• Menos de 1 minuto</span></h2>
     <div class="welcome-video reveal">
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/81eTmR7mFkM" title="Mensagem de boas-vindas — Juciel Oliveira" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/81eTmR7mFkM" title="Mensagem do fundador e CEO da Monteo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
     <div class="welcome-sign reveal"><b>Juciel Oliveira</b> — CEO e Fundador da Monteo</div>
@@ -470,6 +491,28 @@
     <a class="link-copper reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">Conheça a Monteo no Instagram →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ================= ONDE RECEBEMOS NOSSOS CLIENTES ================= -->
+<section class="office">
+  <div class="container">
+    <span class="eyebrow reveal">Nossa estrutura</span>
+    <h2 class="reveal">Onde recebemos nossos clientes.</h2>
+    <p class="sub reveal">Um ambiente pensado para receber médicos, empresários e investidores com a sofisticação e a discrição que cada conversa merece.</p>
+    <div class="carousel reveal" id="officeCarousel">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="entrada-monteo.png" alt="Recepção da Monteo" loading="lazy"></div>
+        <div class="carousel-slide"><img src="escritorio-5.jpg" alt="Hall de entrada da Monteo" loading="lazy"></div>
+        <div class="carousel-slide"><img src="escritorio-1.jpg" alt="Auditório da Monteo" loading="lazy"></div>
+        <div class="carousel-slide"><img src="escritorio-4.jpg" alt="Lounge e bar da Monteo" loading="lazy"></div>
+        <div class="carousel-slide"><img src="escritorio-2.jpg" alt="Corredor e copa da Monteo" loading="lazy"></div>
+        <div class="carousel-slide"><img src="escritorio-3.jpg" alt="Sala de reunião da Monteo" loading="lazy"></div>
+      </div>
+      <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+      <button class="carousel-btn next" aria-label="Próxima">›</button>
+    </div>
+    <div class="carousel-dots" id="officeDots"></div>
   </div>
 </section>
 
@@ -611,23 +654,6 @@
   </div>
 </section>
 
-<!-- ================= MENSAGEM FINAL ================= -->
-<section class="final">
-  <div class="container">
-    <span class="eyebrow reveal">Uma mensagem para você</span>
-    <h2 class="reveal">Mais do que estratégias, construímos relações de confiança.</h2>
-    <p class="sub reveal">Uma mensagem pessoal de nossos fundadores sobre o propósito e a missão da Monteo.</p>
-    <div class="final-video reveal">
-      <!-- Substituir pelo embed do vídeo dos fundadores (~2 min) -->
-      <div class="video-thumb ph-wrap ph" data-label="Vídeo dos fundadores (~2 min)">
-        <div class="play"></div>
-      </div>
-    </div>
-    <div class="final-sign reveal">"Obrigado pelo seu tempo e pela sua confiança."</div>
-    <div class="final-names reveal">Juciel Oliveira &amp; Karen Hasse</div>
-  </div>
-</section>
-
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
@@ -675,6 +701,38 @@
     if(img.complete && img.naturalWidth > 0){ img.parentElement.classList.remove('ph'); }
     img.addEventListener('load', function(){ img.parentElement.classList.remove('ph'); });
   });
+
+  // Office carousel
+  (function(){
+    var carousel = document.getElementById('officeCarousel');
+    if(!carousel) return;
+    var track = carousel.querySelector('.carousel-track');
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var dotsWrap = document.getElementById('officeDots');
+    var index = 0;
+    var total = slides.length;
+
+    for(var i=0;i<total;i++){
+      var d = document.createElement('button');
+      d.className = 'carousel-dot' + (i===0?' active':'');
+      d.setAttribute('aria-label','Foto '+(i+1));
+      (function(n){ d.addEventListener('click', function(){ go(n); }); })(i);
+      dotsWrap.appendChild(d);
+    }
+    var dots = dotsWrap.querySelectorAll('.carousel-dot');
+
+    function go(n){
+      index = (n + total) % total;
+      track.style.transform = 'translateX(-' + (index*100) + '%)';
+      dots.forEach(function(dot,i){ dot.classList.toggle('active', i===index); });
+    }
+    carousel.querySelector('.prev').addEventListener('click', function(){ go(index-1); });
+    carousel.querySelector('.next').addEventListener('click', function(){ go(index+1); });
+
+    // auto-advance every 6s
+    var timer = setInterval(function(){ go(index+1); }, 6000);
+    carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  })();
 </script>
 
 </body>
