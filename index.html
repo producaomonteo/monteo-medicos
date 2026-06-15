@@ -333,7 +333,9 @@
     .numbers-grid{grid-template-columns:1fr 1fr;gap:40px 0}
     .num-col:nth-child(3){border-left:none}
     .strategies-grid{grid-template-columns:1fr}
-    .review-card{padding:32px 24px}
+    .review-card{padding:32px 24px;min-height:0}
+    .review-track{align-items:flex-start}
+    .review-nav{margin-top:20px}
     /* Setas inline ao lado das bolinhas, fora do texto */
     .review-nav .carousel-btn{position:static;transform:none;width:38px;height:38px;font-size:17px}
     .founders{padding:80px 0}
@@ -763,7 +765,18 @@
       index = (n + total) % total;
       track.style.transform = 'translateX(-' + (index*100) + '%)';
       dots.forEach(function(dot,i){ dot.classList.toggle('active', i===index); });
+      adjustHeight();
     }
+    function adjustHeight(){
+      // Em telas estreitas, a altura acompanha o slide ativo (evita vão embaixo de avaliações curtas)
+      if(window.innerWidth <= 900){
+        track.style.height = slides[index].offsetHeight + 'px';
+      } else {
+        track.style.height = '';
+      }
+    }
+    window.addEventListener('resize', adjustHeight);
+    setTimeout(adjustHeight, 100);
     btnScope.querySelector('.prev').addEventListener('click', function(){ go(index-1); });
     btnScope.querySelector('.next').addEventListener('click', function(){ go(index+1); });
   }
