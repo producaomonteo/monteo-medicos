@@ -100,6 +100,25 @@
   }
   .btn-outline:hover{background:var(--copper);color:var(--white)}
 
+  /* ================= VÍDEO BOAS-VINDAS ================= */
+  .welcome{padding:120px 0;text-align:center}
+  .welcome h2{font-family:var(--serif);font-size:clamp(32px,3.6vw,44px);font-weight:400;line-height:1.2;max-width:720px;margin:20px auto 16px}
+  .welcome .sub{font-size:16px;line-height:1.7;color:var(--txt-2);font-weight:300;max-width:600px;margin:0 auto 56px}
+  .welcome-video{max-width:880px;margin:0 auto;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+  .welcome-video .video-embed{aspect-ratio:16/9}
+  .welcome-video .video-embed iframe{width:100%;height:100%;border:0;display:block}
+  .welcome-sign{margin-top:32px;font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--copper)}
+  .welcome-sign b{font-weight:500}
+
+  /* ================= ESTRATÉGIAS ================= */
+  .strategies{padding:120px 0;text-align:center}
+  .strategies h2{font-family:var(--serif);font-size:clamp(34px,4vw,48px);font-weight:400;line-height:1.2;max-width:680px;margin:20px auto 16px}
+  .strategies .sub{font-size:16px;line-height:1.7;color:var(--txt-2);font-weight:300;max-width:640px;margin:0 auto 56px}
+  .strategies-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .strategy-card .video-embed{aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:#1C1C1C}
+  .strategy-card .video-embed iframe{width:100%;height:100%;border:0;display:block}
+  .strategy-card .strat-name{margin-top:22px;font-family:var(--serif);font-size:24px;font-weight:400;color:var(--white)}
+
   /* ================= NÚMEROS ================= */
   .numbers{background:var(--bg-alt);padding:72px 0}
   .numbers-grid{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -115,10 +134,8 @@
 
   /* ================= AVALIAÇÕES GOOGLE ================= */
   .reviews{padding:120px 0;text-align:center}
-  .stars{font-size:30px;letter-spacing:10px;color:var(--copper);margin:28px 0 8px}
-  .reviews .score{font-family:var(--serif);font-size:clamp(48px,5vw,64px);font-weight:400}
-  .reviews .score span{font-size:22px;color:var(--txt-3);font-family:var(--sans);letter-spacing:1px}
-  .reviews .count{margin-top:6px;font-size:13px;text-transform:uppercase;letter-spacing:3px;color:var(--txt-3)}
+  .google-print{max-width:520px;margin:32px auto 8px;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff}
+  .google-print img{width:100%;height:auto;display:block}
   .reviews .lead{max-width:620px;margin:36px auto 56px;color:var(--txt-2);font-size:17px;line-height:1.7;font-weight:300}
   .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px;text-align:left;align-items:stretch}
   .review-card{
@@ -127,14 +144,24 @@
   }
   .review-card .review-stars{color:var(--copper);font-size:14px;letter-spacing:5px;margin-bottom:20px}
   .review-card p{font-size:15px;line-height:1.8;color:var(--txt-2);font-weight:300;flex:1}
-  .review-card .review-src{
-    margin-top:28px;display:flex;align-items:center;gap:10px;
-    font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--txt-3);
+  .review-card .review-author{
+    margin-top:28px;display:flex;align-items:center;gap:12px;
+  }
+  .review-card .review-avatar{
+    width:40px;height:40px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--sans);font-weight:600;font-size:16px;color:var(--white);
+    background:linear-gradient(135deg,#A87056,#7d4f38);
+  }
+  .review-card .review-meta .ra-name{font-size:14px;font-weight:500;color:var(--white)}
+  .review-card .review-meta .ra-src{
+    margin-top:3px;display:flex;align-items:center;gap:6px;
+    font-size:11px;letter-spacing:1px;color:var(--txt-3);
   }
   .review-card .g-badge{
-    width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);
+    width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);
     display:flex;align-items:center;justify-content:center;
-    font-family:var(--sans);font-weight:600;font-size:13px;color:var(--white);
+    font-family:var(--sans);font-weight:600;font-size:9px;color:var(--white);
   }
 
   /* ================= QUEM SOMOS ================= */
@@ -147,8 +174,9 @@
   .founders-txt p{font-size:16px;line-height:1.8;color:var(--txt-2);font-weight:300}
   .tags{display:flex;flex-wrap:wrap;gap:12px;margin:40px 0}
   .tag{border:1px solid var(--border-strong);padding:10px 20px;border-radius:2px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--txt-2)}
-  .book{height:160px;width:128px;margin-bottom:32px}
+  .book{height:160px;width:128px;margin-bottom:14px}
   .book .ph-wrap{width:100%;height:100%;border-radius:4px}
+  .book-caption{font-size:12px;color:var(--txt-3);font-style:italic;font-family:var(--serif);margin-bottom:32px}
   .link-copper{color:var(--copper);font-size:14px;letter-spacing:1px;transition:opacity .3s}
   .link-copper:hover{opacity:.7}
 
@@ -257,6 +285,7 @@
     .numbers-grid{grid-template-columns:1fr 1fr;gap:40px 0}
     .num-col:nth-child(3){border-left:none}
     .review-grid{grid-template-columns:1fr}
+    .strategies-grid{grid-template-columns:1fr}
     .founders{padding:80px 0}
     .founders-grid{grid-template-columns:1fr;gap:48px}
     .podcast-block{grid-template-columns:1fr;gap:40px;margin-bottom:80px}
@@ -300,6 +329,68 @@
   </div>
 </header>
 
+<!-- ================= VÍDEO BOAS-VINDAS ================= -->
+<section class="welcome">
+  <div class="container">
+    <span class="eyebrow reveal">Uma mensagem de boas-vindas</span>
+    <h2 class="reveal">Antes de tudo, uma palavra de quem fundou a Monteo.</h2>
+    <p class="sub reveal">Neste vídeo, nosso fundador dá as boas-vindas e explica o que você vai encontrar nesta página.</p>
+    <div class="welcome-video reveal">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/81eTmR7mFkM" title="Mensagem de boas-vindas — Juciel Oliveira" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="welcome-sign reveal"><b>Juciel Oliveira</b> — CEO e Fundador da Monteo</div>
+  </div>
+</section>
+
+<!-- ================= AVALIAÇÕES GOOGLE ================= -->
+<section class="reviews">
+  <div class="container">
+    <span class="eyebrow reveal">O que nossos clientes dizem</span>
+    <div class="google-print reveal">
+      <img src="print-google.png" alt="Perfil da Monteo no Google: 5,0 estrelas e 222 avaliações">
+    </div>
+    <p class="lead reveal">A confiança é construída ao longo do tempo. Temos orgulho de manter uma avaliação máxima no Google, refletindo a experiência dos clientes que confiaram na Monteo em sua construção patrimonial.</p>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p>"Conheço a empresa desde 2020, como cliente fui bem atendido em todos os momentos. Me explicaram todas as estratégias possíveis de como utilizar o produto, responderam a várias dúvidas, das simples às complexas. A equipe sempre profissional, educada e com uma alegria contagiante. Recomendo para meus amigos, familiares e aos meus clientes."</p>
+        <div class="review-author">
+          <div class="review-avatar">T</div>
+          <div class="review-meta">
+            <div class="ra-name">Thiago Augusto</div>
+            <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p>"Conheci a Monteo por indicação de um cliente e simplesmente é uma empresa fantástica! O atendimento foi muito rápido, informações claras e objetivas sem nenhuma enrolação! Já vou começar a investir em consórcio porque sei que vale a pena para meu futuro! 🙌🏽"</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div class="review-meta">
+            <div class="ra-name">Sind Lopes</div>
+            <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p>"Quero deixar minha avaliação sobre a experiência incrível que tive com a Monteo. Desde o primeiro atendimento fui muito bem tratado, com total atenção, transparência e profissionalismo. Foi sensacional em todo o processo, tirando todas as dúvidas com paciência, explicando tudo de forma clara e passando muita confiança. Atendimento diferenciado, rápido e extremamente profissional. Dá para ver que realmente se preocupam com o cliente e busca a melhor solução. Estou muito satisfeito com a experiência e recomendo de olhos fechados."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div class="review-meta">
+            <div class="ra-name">Messias Alencar</div>
+            <div class="ra-src"><span class="g-badge">G</span> Avaliação no Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="btn-outline reveal" href="https://www.google.com/search?q=monteo&rlz=1C1UEAD_enBR1142BR1142&oq=monteo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg8MgYIARBFGDsyBggCEEUYOzIHCAMQABiABDIGCAQQRRg9MgYIBRBFGEEyBggGEEUYQTIGCAcQRRhB0gEIMTU4M2owajSoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
+  </div>
+</section>
+
 <!-- ================= NÚMEROS ================= -->
 <section class="numbers" id="monteo">
   <div class="container">
@@ -326,34 +417,29 @@
   </div>
 </section>
 
-<!-- ================= AVALIAÇÕES GOOGLE ================= -->
-<section class="reviews">
+<!-- ================= ESTRATÉGIAS ================= -->
+<section class="strategies">
   <div class="container">
-    <span class="eyebrow reveal">O que nossos clientes dizem</span>
-    <div class="stars reveal">★★★★★</div>
-    <div class="score reveal">5,0 <span>no Google</span></div>
-    <div class="count reveal">212 avaliações de clientes</div>
-    <p class="lead reveal">A confiança é construída ao longo do tempo. Temos orgulho de manter uma avaliação máxima no Google, refletindo a experiência dos clientes que confiaram na Monteo em sua construção patrimonial.</p>
-    <div class="review-grid">
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p>"Conheço a empresa desde 2020, como cliente fui bem atendido em todos os momentos. Me explicaram todas as estratégias possíveis de como utilizar o produto, responderam a várias dúvidas, das simples às complexas. A equipe sempre profissional, educada e com uma alegria contagiante. Recomendo para meus amigos, familiares e aos meus clientes."</p>
-        <div class="review-src"><span class="g-badge">G</span> Avaliação no Google</div>
+    <span class="eyebrow reveal">Relembre o que vimos juntos</span>
+    <h2 class="reveal">Relembre as estratégias apresentadas.</h2>
+    <p class="sub reveal">Estas são as principais estratégias apresentadas durante sua reunião. Assista aos vídeos abaixo para relembrar os conceitos e entender como cada uma delas funciona.</p>
+    <div class="strategies-grid">
+      <div class="strategy-card reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/HLM1rICSAu4" title="Multiplicação de Capital" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="strat-name">Multiplicação de Capital</div>
       </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p>"Conheci a Monteo por indicação de um cliente e simplesmente é uma empresa fantástica! O atendimento foi muito rápido, informações claras e objetivas sem nenhuma enrolação! Já vou começar a investir em consórcio porque sei que vale a pena para meu futuro! 🙌🏽"</p>
-        <div class="review-src"><span class="g-badge">G</span> Avaliação no Google</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p>"Apesar da grande vontade de investir nunca coloquei em prática, conhecendo a Monteo tive a oportunidade de avançar com este passo super importante… Me sinto muito seguro com a forma de trabalho e transparência da empresa. Agradeço por agregarem na minha vida, vocês fazem a diferença!"</p>
-        <div class="review-src"><span class="g-badge">G</span> Avaliação no Google</div>
+      <div class="strategy-card reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/k7NZCgN_-_g" title="Alavancagem Patrimonial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="strat-name">Alavancagem Patrimonial</div>
       </div>
     </div>
-    <a class="btn-outline reveal" href="https://www.google.com/search?q=monteo&rlz=1C1UEAD_enBR1142BR1142&oq=monteo&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg8MgYIARBFGDsyBggCEEUYOzIHCAMQABiABDIGCAQQRRg9MgYIBRBFGEEyBggGEEUYQTIGCAcQRRhB0gEIMTU4M2owajSoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
   </div>
 </section>
+
 
 <!-- ================= QUEM SOMOS ================= -->
 <section class="founders">
@@ -371,7 +457,7 @@
     <div class="tags reveal">
       <span class="tag">Fundadores da Monteo</span>
       <span class="tag">Hosts do Receita de Sucesso Podcast</span>
-      <span class="tag">Autores Best Sellers</span>
+      <span class="tag">Autores pela Alta Books</span>
       <span class="tag">Empresários e Palestrantes</span>
     </div>
     <div class="book reveal">
@@ -379,40 +465,24 @@
         <img src="livro-receita.png" alt="Livro Receita de Sucesso, Os Pilares dos Empresários Bem-sucedidos" onerror="this.remove()">
       </div>
     </div>
-    <a class="link-copper reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">→ Instagram da Monteo</a>
+    <div class="book-caption reveal">Receita de Sucesso — publicado pela Alta Books</div>
+    <a class="link-copper reveal" href="https://www.instagram.com/monteo.oficial" target="_blank" rel="noopener">Conheça a Monteo no Instagram →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTEÚDO / PODCASTS ================= -->
+<!-- ================= RECEITA DE SUCESSO PODCAST ================= -->
 <section class="podcast">
   <div class="container">
-    <span class="eyebrow reveal">Conteúdo</span>
-    <h2 class="section-title reveal">Podcast</h2>
-
-    <div class="podcast-block reveal">
-      <div class="podcast-info">
-        <img class="podcast-logo" src="logo-monteocast.png" alt="Monteo Cast"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <div class="podcast-logo-fallback">Monteo Cast</div>
-        <p class="sub">Conteúdo estratégico para quem quer entender e dominar o mercado de consórcios.</p>
-        <a class="btn-outline" href="https://www.youtube.com/watch?v=89_4jaPNwxg&list=PLVU13ZzvmqTz4hymX_FdcQUmEDDr1bCPG" target="_blank" rel="noopener">Ver o canal</a>
-      </div>
-      <div class="podcast-media">
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/89_4jaPNwxg" title="Monteo Cast" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-
     <div class="podcast-block reveal">
       <div class="podcast-info">
         <img class="podcast-logo" src="logo-receita.png" alt="Receita de Sucesso Podcast"
              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <div class="podcast-logo-fallback">Receita de Sucesso Podcast</div>
         <p class="sub">Nossos fundadores entrevistam constantemente alguns dos maiores empresários e líderes do Brasil. Empresários, executivos, atletas e líderes que construíram resultados extraordinários em suas áreas de atuação.</p>
-        <a class="btn-outline" href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Ver o canal</a>
+        <p class="sub" style="color:var(--white);font-weight:400">Mais de 160 episódios com alguns dos maiores empresários, atletas, influenciadores e líderes do Brasil.</p>
+        <a class="btn-outline" href="https://www.youtube.com/@receitadesucessopodcast/videos" target="_blank" rel="noopener">Assistir Episódios →</a>
       </div>
       <div class="podcast-media">
         <div class="ph-wrap ph" data-label="Mosaico de convidados (foto-convidados.png)">
@@ -420,7 +490,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
