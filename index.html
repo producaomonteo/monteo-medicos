@@ -117,7 +117,7 @@
   .strategies-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
   .strategy-card .video-embed{aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:#1C1C1C}
   .strategy-card .video-embed iframe{width:100%;height:100%;border:0;display:block}
-  .strategy-card .strat-name{margin-top:22px;font-family:var(--serif);font-size:24px;font-weight:400;color:var(--white)}
+  .strategy-card .strat-name{margin:0 0 18px;font-family:var(--serif);font-size:24px;font-weight:400;color:var(--white)}
 
   /* ================= NÚMEROS ================= */
   .numbers{background:var(--bg-alt);padding:72px 0}
@@ -139,6 +139,7 @@
   .google-print img{width:100%;height:auto;display:block}
   .reviews .lead{max-width:620px;margin:36px auto 56px;color:var(--txt-2);font-size:17px;line-height:1.7;font-weight:300}
   .review-carousel{position:relative;max-width:760px;margin:0 auto 32px;overflow:hidden;border-radius:8px}
+  .review-carousel .carousel-btn{width:40px;height:40px;font-size:18px}
   .review-carousel .carousel-btn.prev{left:14px}
   .review-carousel .carousel-btn.next{right:14px}
   .reviews .carousel-dots{margin-bottom:48px}
@@ -146,7 +147,7 @@
   .review-slide{min-width:100%;box-sizing:border-box}
   .review-card{
     background:#1C1C1C;border:1px solid var(--border);border-radius:8px;
-    padding:40px;display:flex;flex-direction:column;text-align:left;min-height:340px;
+    padding:40px 72px;display:flex;flex-direction:column;text-align:left;min-height:340px;
   }
   .review-card .review-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
   .review-card .review-avatar{
@@ -331,6 +332,10 @@
     .numbers-grid{grid-template-columns:1fr 1fr;gap:40px 0}
     .num-col:nth-child(3){border-left:none}
     .strategies-grid{grid-template-columns:1fr}
+    .review-card{padding:32px 28px}
+    .review-carousel .carousel-btn{width:34px;height:34px;font-size:16px}
+    .review-carousel .carousel-btn.prev{left:6px}
+    .review-carousel .carousel-btn.next{right:6px}
     .founders{padding:80px 0}
     .founders-grid{grid-template-columns:1fr;gap:48px}
     .podcast-block{grid-template-columns:1fr;gap:40px;margin-bottom:80px}
@@ -478,16 +483,16 @@
     <p class="sub reveal">Estas são as principais estratégias apresentadas durante sua reunião. Assista aos vídeos abaixo para relembrar os conceitos e entender como cada uma delas funciona.</p>
     <div class="strategies-grid">
       <div class="strategy-card reveal">
+        <div class="strat-name">Multiplicação de Capital</div>
         <div class="video-embed">
           <iframe src="https://www.youtube.com/embed/HLM1rICSAu4" title="Multiplicação de Capital" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="strat-name">Multiplicação de Capital</div>
       </div>
       <div class="strategy-card reveal">
+        <div class="strat-name">Alavancagem Patrimonial</div>
         <div class="video-embed">
           <iframe src="https://www.youtube.com/embed/k7NZCgN_-_g" title="Alavancagem Patrimonial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="strat-name">Alavancagem Patrimonial</div>
       </div>
     </div>
   </div>
@@ -620,7 +625,7 @@
         </div>
         <div class="video-label">
           <div class="name">Thiago Reis</div>
-          <div class="role">Mentor de Vendas</div>
+          <div class="role">Empresário</div>
         </div>
       </div>
       <div class="video-card reveal">
@@ -629,7 +634,7 @@
         </div>
         <div class="video-label">
           <div class="name">Max Jefferson</div>
-          <div class="role">Cliente Monteo</div>
+          <div class="role">Empresário</div>
         </div>
       </div>
     </div>
@@ -645,10 +650,6 @@
 
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-q">Por que a Monteo pagou pela minha consulta?</button>
-        <div class="faq-a"><p>Porque valorizamos o seu tempo. Ao invés de pedir alguns minutos da sua agenda, preferimos merecer a oportunidade de apresentar nosso trabalho e compartilhar uma estratégia patrimonial que acreditamos poder gerar valor no longo prazo.</p></div>
-      </div>
-      <div class="faq-item">
         <button class="faq-q">Consórcio só vale a pena se contemplar rápido?</button>
         <div class="faq-a"><p>Não. Embora a contemplação antecipada possa acelerar os resultados, o principal diferencial está na estratégia utilizada. Mesmo em cenários de longo prazo, é possível construir patrimônio de forma eficiente, preservando liquidez e reduzindo a necessidade de utilizar grandes volumes de capital próprio. Por isso, mais importante do que a velocidade da contemplação é a estratégia.</p></div>
       </div>
@@ -661,6 +662,10 @@
         <div class="faq-a"><p>Como toda decisão financeira, essa estratégia exige planejamento e critérios bem definidos. As administradoras de consórcio são regulamentadas e fiscalizadas pelo Banco Central, trazendo segurança e transparência para o segmento. Por isso, a Monteo atua com algumas das principais administradoras do mercado e busca estruturar estratégias alinhadas ao perfil de cada cliente.</p></div>
       </div>
       <div class="faq-item">
+        <button class="faq-q">Por que a Monteo pagou pela minha consulta?</button>
+        <div class="faq-a"><p>Porque valorizamos o seu tempo. Ao invés de pedir alguns minutos da sua agenda, preferimos merecer a oportunidade de apresentar nosso trabalho e compartilhar uma estratégia patrimonial que acreditamos poder gerar valor no longo prazo.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q">Por que médicos utilizam esse tipo de estratégia?</button>
         <div class="faq-a"><p>Porque ela permite acelerar a construção patrimonial, preservando liquidez e reduzindo a necessidade de utilizar grandes volumes de capital próprio. Por isso, é uma estratégia amplamente utilizada por profissionais que buscam crescimento patrimonial no longo prazo.</p></div>
       </div>
@@ -669,7 +674,7 @@
         <div class="faq-a"><p>Não. Um dos principais diferenciais dessa estratégia é justamente a possibilidade de construir patrimônio de forma gradual, através de aportes mensais planejados, sem a necessidade de imobilizar grandes volumes de capital próprio.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Qual o diferencial da Monteo frente a outras empresas que atuam com consórcios?</button>
+        <button class="faq-q">Qual o diferencial da Monteo frente a outras empresas que atuam com consórcio?</button>
         <div class="faq-a"><p>Um consórcio sem estratégia é apenas um produto. O diferencial da Monteo está na forma como essa ferramenta é utilizada, através de estratégia, assessoria e acompanhamento voltados para a construção patrimonial de longo prazo.</p></div>
       </div>
       <div class="faq-item">
