@@ -350,6 +350,15 @@
     .num-col{border-left:none;border-top:1px solid rgba(168,112,86,0.2);padding:28px 16px}
     .num-col:first-child{border-top:none}
   }
+
+  /* ================= FAIXA PRÊMIO ================= */
+  .award-strip{background:var(--bg-alt);border-top:1px solid rgba(168,112,86,0.28);border-bottom:1px solid rgba(168,112,86,0.28);padding:22px 40px}
+  .award-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;text-align:left}
+  .award-icon{width:34px;height:34px;color:var(--copper);flex-shrink:0}
+  .award-text{display:flex;flex-direction:column;gap:3px}
+  .award-text strong{font-family:var(--serif);font-size:19px;color:var(--white);font-weight:600;line-height:1.25}
+  .award-text span{font-family:var(--sans);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--copper)}
+  @media(max-width:600px){.award-strip{padding:18px 20px}.award-inner{gap:12px}.award-icon{width:28px;height:28px}.award-text strong{font-size:15px}}
 </style>
 </head>
 <body>
@@ -379,6 +388,18 @@
     <a class="btn" href="#monteo">Conhecer a Monteo</a>
   </div>
 </header>
+
+<!-- ================= PRÊMIO ================= -->
+<section class="award-strip">
+  <div class="award-inner">
+    <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+    <div class="award-text">
+      <strong>Eleita a Melhor Empresa de Consórcio Imobiliário do Brasil</strong>
+      <span>Real Estate Awards 2026</span>
+    </div>
+  </div>
+</section>
+
 
 <!-- ================= VÍDEO BOAS-VINDAS ================= -->
 <section class="welcome">
